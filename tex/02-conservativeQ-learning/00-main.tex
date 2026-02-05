@@ -1,0 +1,17 @@
+\section{Conservative Q-Learning}
+
+In this problem, you'll be implementing the \href{https://arxiv.org/abs/2006.04779}{Conservative Q-Learning} (CQL) algorithm. The goal of CQL is to prevent overestimation of the policy value. The overall CQL objective is given by the standard TD error objective augmented with the CQL regularizer weighted by $\alpha: \alpha\left[\frac{1}{N} \sum_{i=1}^N\left(\log \left(\sum_a \exp \left(Q\left(s_i, a\right)\right)\right)-Q\left(s_i, a_i\right)\right)\right]$. 
+
+\begin{enumerate}[(a)]
+
+  \input{02-conservativeQ-learning/01-code}
+
+  \input{02-conservativeQ-learning/02-run}
+
+  \input{02-conservativeQ-learning/03-compare}
+
+\end{enumerate}
+
+
+
+

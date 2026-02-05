@@ -1,0 +1,22 @@
+\item \points{2c} \noindent \textbf{Compare the learnt policies} 
+
+Compare the learnt policies for the RND and Random exploration on the \\ \texttt{PointmassHard-v0} environment with $\alpha=0.1$ by reporting the eval average return and standard deviation. 
+Remove the \texttt{--use\_rnd} flag to run with random exploration:
+
+\begin{tcolorbox}[width=\linewidth, sharp corners=all, colback=white!95!black]
+\begin{verbatim}
+python run_cql.py --env_name PointmassHard-v0 \
+    --exp_name cql_alpha_0.1_random \
+    --unsupervised_exploration \
+    --offline_exploitation --cql_alpha=0.1
+\end{verbatim}
+\end{tcolorbox}
+
+
+Attach the \texttt{eval\_last\_traj.png} image denoting your agent's last trajectory for each run (Performance may vary by different random seeds, please run the experiment 3 times and report all runs).
+
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_2c(.*?)% <SCPD_SUBMISSION_TAG>_2c', f.read(), re.DOTALL)).group(1))
+🐍

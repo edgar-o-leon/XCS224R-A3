@@ -1,0 +1,24 @@
+\item \points{1c} \noindent \textbf{Compare the learnt policies} 
+
+Compare the learnt policies for the RND and Random exploration on the \\ \texttt{PointmassMedium-v0} environment using the best $\zeta$ value from the previous runs. Report the eval average return and standard deviation. What does the performance gap between the two exploration strategies indicate about the collected data in case of offline RL?
+
+
+Remove the \texttt{--use\_rnd} flag to run with random exploration:
+
+\begin{tcolorbox}[width=\linewidth, sharp corners=all, colback=white!95!black]
+\begin{verbatim}
+python run_iql.py --env_name PointmassMedium-v0 \
+--exp_name iql_zeta_{enter_your_zeta}_random \
+--num_exploration_steps=20000 \
+--unsupervised_exploration \
+--awac_lambda=1 \
+--iql_expectile={enter_your_zeta}
+\end{verbatim}
+\end{tcolorbox}
+
+Attach the \texttt{eval\_last\_traj.png} image denoting your agent's last trajectory for each run.
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_1c(.*?)% <SCPD_SUBMISSION_TAG>_1c', f.read(), re.DOTALL)).group(1))
+🐍

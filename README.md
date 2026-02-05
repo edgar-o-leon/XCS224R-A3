@@ -5,15 +5,9 @@ compile a LaTeX submission.
 
 ## Development environment
 
-We provide two development environments: (i) local and (ii) Colab environment. We recommend using a local environment with Azure cloud for GPU access.
+We provide a single local development environments that can be used with Azure cloud for GPU access.
 
 For the local environment, you need to use either `uv` or `conda` to set up your Python environment. For assignment notebooks that require **GPU**, you can use the Azure cloud VM (virtual machine) provided to you. The advantages of setting up your own environment are: (i) you can use your preferred IDE such as VSCode, and (ii) you can run basic test cases locally to help with debugging.
-
-For the Colab environment, you don't need to set up a Python environment since it's already configured, which can be convenient. For assignment notebooks that require **GPU**, you can change the Colab runtime type to GPU, though you may need to subscribe to Colab Pro. The main advantage of using Colab is the ease of environment setup. The disadvantages are: (i) editing and debugging code can be less convenient, and (ii) you may not be able to run basic test cases.
-
-GPU usage options are summarized as follows based on your environment setup choice:
-- Azure VM is available for those who chose the local environment setup
-- Colab with GPU runtime is available for those who chose the Colab environment (Note: Colab Pro subscription may be required)
 
 The followings describes how to setup the local environments:
 
@@ -22,14 +16,9 @@ For assignment development, it is best if you work on a local environment with `
 - [How to setup `uv`?](#option-1-using-uv-recommended)
 - [How to run the autograder?](#running-the-autograder-locally)
 
-### Colab + `uv`
-If your prefer Colab as your development environment, we have a tutorial video that will help you get started. For the Python package manager in the Colab environment, we offer support for both `uv` and `conda` with again preference for `uv`. 
-<!-- TODO: ADD LINK TO RECORDED VIDEO SESSION SETTING UP COLAB ENV -->
-- [How to setup Colab environment?]()
-
 ## Setting Up Virtual Environment
 
-Here is how you setup your local environment. For using Google Colab, you may skip this section.
+Here is how you setup your local environment.
 There are two ways to set up and manage the Python environment for this project:
 
 ### Option 1: Using uv (Recommended)

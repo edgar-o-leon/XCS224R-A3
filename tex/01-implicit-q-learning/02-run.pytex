@@ -1,0 +1,22 @@
+\item \points{1b} \noindent \textbf{Experiment and report} 
+
+Experiment with $\zeta = 0.2, 0.9$ on the \texttt{PointmassEasy-v0} and report the eval average return and standard deviation for both cases. You can look at the final eval trajectories under the saved logs to qualitatively observe your agent's performance. The code would run for 50,000 iterations and would roughly take at most an hour to finish.  Attach the \texttt{eval\_last\_traj.png} image denoting your agent's last trajectory for each run. Which $\zeta$ value performs better and why?
+
+
+\begin{tcolorbox}[width=\linewidth, sharp corners=all, colback=white!95!black]
+\begin{verbatim}
+python run_iql.py --env_name PointmassEasy-v0 \
+--exp_name iql_zeta_{enter_your_zeta}_rnd --use_rnd \
+--num_exploration_steps=20000 \
+--unsupervised_exploration \
+--awac_lambda=1 \
+--iql_expectile={enter_your_zeta}
+\end{verbatim}
+\end{tcolorbox}
+
+\noindent
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_1b(.*?)% <SCPD_SUBMISSION_TAG>_1b', f.read(), re.DOTALL)).group(1))
+🐍

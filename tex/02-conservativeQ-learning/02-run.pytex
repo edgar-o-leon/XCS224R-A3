@@ -1,0 +1,26 @@
+\item \points{2b} \noindent \textbf{Experiment and report} 
+
+Once you’ve filled in all of the \texttt{TODO} commands, you should be able to run CQL with the following command - 
+\begin{tcolorbox}[width=\linewidth, sharp corners=all, colback=white!95!black]
+\begin{verbatim}
+python run_cql.py --env_name PointmassHard-v0 \
+    --exp_name cql_alpha_{enter_your_alpha}_rnd \
+    --use_rnd --unsupervised_exploration \
+    --offline_exploitation --cql_alpha={enter_your_alpha}
+\end{verbatim}
+\end{tcolorbox}
+
+You can look at the final eval trajectories under the saved logs to qualitatively observe your agent's performance. The code would run for 50,000 iterations and would roughly take about an hour to finish.
+
+Attach the \texttt{eval\_last\_traj.png} image denoting your agent's last trajectory for each run.
+
+Experiment with $\alpha = 0, 0.1$ on the \texttt{PointmassHard-v0} and report the Eval average return and standard deviation for both cases on the PointmassHard-v0 environment.
+
+What does $\alpha=0.0$ signify in terms of the algorithm? 
+
+Explain the difference in obtained performance gap based on $\alpha$ (Performance may vary by different random seeds, please run the experiment 3 times and report all runs).
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_2b(.*?)% <SCPD_SUBMISSION_TAG>_2b', f.read(), re.DOTALL)).group(1))
+🐍

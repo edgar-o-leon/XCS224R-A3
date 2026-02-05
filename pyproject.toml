@@ -1,0 +1,18 @@
+[project]
+name = "xcs224r"
+version = "0.1.0"
+description = "Deep reinforcement learning course environment"
+requires-python = ">=3.12"
+dependencies = [
+    "ipython==9.7.0",
+    "json5==0.12.1",
+    "matplotlib==3.10.8",
+    "moviepy==1.0.3",
+    "tensorboard==2.20.0",
+    "ffmpeg==1.4",
+    "protobuf==6.33.0",
+    "pyvirtualdisplay==3.0",
+    "networkx==3.6.1",
+    "ipdb==0.13.3",
+    "scipy==1.17.0"
+]
