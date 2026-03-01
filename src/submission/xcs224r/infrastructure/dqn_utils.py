@@ -164,7 +164,7 @@ class PiecewiseSchedule(object):
     def __init__(self, endpoints, interpolation=linear_interpolation, outside_value=None):
         """Piecewise schedule.
         endpoints: [(int, int)]
-            list of pairs `(time, value)` meanining that schedule should output
+            list of pairs `(time, value)` meaning that schedule should output
             `value` when `t==time`. All the values for time must be sorted in
             an increasing order. When t is between two times, e.g. `(time_a, value_a)`
             and `(time_b, value_b)`, such that `time_a <= t < time_b` then value outputs
@@ -175,7 +175,7 @@ class PiecewiseSchedule(object):
             to the `endpoints`. Alpha is the fraction of distance from left endpoint to
             right endpoint that t has covered. See linear_interpolation for example.
         outside_value: float
-            if the value is requested outside of all the intervals sepecified in
+            if the value is requested outside of all the intervals specified in
             `endpoints` this value is returned. If None then AssertionError is
             raised when outside value is requested.
         """
@@ -268,7 +268,7 @@ def initialize_interdependent_variables(session, vars_list, feed_dict):
             # This can happen if the variables all depend on each other, or more likely if there's
             # another variable outside of the list, that still needs to be initialized. This could be
             # detected here, but life's finite.
-            raise Exception("Cycle in variable dependencies, or extenrnal precondition unsatisfied.")
+            raise Exception("Cycle in variable dependencies, or external precondition unsatisfied.")
         else:
             vars_left = new_vars_left
 
@@ -286,7 +286,7 @@ class MemoryOptimizedReplayBuffer(object):
     def __init__(self, size, frame_history_len, float_obs=False):
         """This is a memory efficient implementation of the replay buffer.
 
-        The sepecific memory optimizations use here are:
+        The specific memory optimizations used here are:
             - only store each frame once rather than k times
               even if every observation normally consists of k last frames
             - store frames as np.uint8 (actually it is most time-performance
@@ -294,7 +294,7 @@ class MemoryOptimizedReplayBuffer(object):
               time)
             - store frame_t and frame_(t+1) in the same buffer.
 
-        For the tipical use case in Atari Deep RL buffer with 1M frames the total
+        For the typical use case in Atari Deep RL buffer with 1M frames the total
         memory footprint of this buffer is 10^6 * 84 * 84 bytes ~= 7 gigabytes
 
         Warning! Assumes that returning frame of zeros at the beginning
@@ -343,7 +343,7 @@ class MemoryOptimizedReplayBuffer(object):
 
         when observing `obs_batch[i]`, action `act_batch[i]` was taken,
         after which reward `rew_batch[i]` was received and subsequent
-        observation  next_obs_batch[i] was observed, unless the epsiode
+        observation  next_obs_batch[i] was observed, unless the episode
         was done which is represented by `done_mask[i]` which is equal
         to 1 if episode has ended as a result of that action.
 
@@ -441,13 +441,13 @@ class MemoryOptimizedReplayBuffer(object):
         return ret
 
     def store_effect(self, idx, action, reward, done):
-        """Store effects of action taken after obeserving frame stored
+        """Store effects of action taken after observing frame stored
         at index idx. The reason `store_frame` and `store_effect` is broken
-        up into two functions is so that once can call `encode_recent_observation`
+        up into two functions is so that one can call `encode_recent_observation`
         in between.
 
-        Paramters
-        ---------
+        Parameters
+        ----------
         idx: int
             Index in buffer of recently observed frame (returned by `store_frame`).
         action: int

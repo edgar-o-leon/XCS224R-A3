@@ -13,11 +13,11 @@ class BootstrappedContinuousCritic(nn.Module, BaseCritic):
         Prefixes and suffixes:
         ob - observation
         ac - action
-        _no - this tensor should have shape (batch self.size /n/, observation dim)
-        _na - this tensor should have shape (batch self.size /n/, action dim)
-        _n  - this tensor should have shape (batch self.size /n/)
+        _no - this tensor should have shape (batch size /n/, observation dim)
+        _na - this tensor should have shape (batch size /n/, action dim)
+        _n  - this tensor should have shape (batch size /n/)
 
-        Note: batch self.size /n/ is defined at runtime.
+        Note: batch size /n/ is defined at runtime.
         is None
     """
     def __init__(self, hparams):

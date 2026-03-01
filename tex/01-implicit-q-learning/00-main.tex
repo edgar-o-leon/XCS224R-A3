@@ -1,6 +1,6 @@
 \section{Implicit Q-Learning}
 
-In this problem, you'll implement the \href{https://arxiv.org/abs/2110.06169}{Implicit Q-Learning} (IQL) method for offline RL. The actor update for IQL incorporates the advantage function similar to the actor update in the \href{https://arxiv.org/abs/2006.09359}{Advantage-Weighted Actor Critic} (AWAC) algorithm. This an advantage-weighted negative log likelihood loss function: 
+In this problem, you'll implement the \href{https://arxiv.org/abs/2110.06169}{Implicit Q-Learning} (IQL) method for offline RL. The actor update for IQL incorporates the advantage function similar to the actor update in the \href{https://arxiv.org/abs/2006.09359}{Advantage-Weighted Actor Critic} (AWAC) algorithm. This is an advantage-weighted negative log likelihood loss function: 
 \begin{equation}
     L_\pi(\psi)=-\mathbb{E}_{s, a \sim \mathcal{B}}\left[\log \pi_\psi(a \mid s) \exp \left(\frac{1}{\lambda} \mathcal{A}^{\pi_k}(s, a)\right)\right]
 \end{equation}

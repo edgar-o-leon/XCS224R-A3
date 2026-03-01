@@ -43,7 +43,7 @@ class IQLCritic(BaseCritic):
         self.q_net_target.to(ptu.device)
 
         # TODO define value function
-        # HINT: see Q_net definition above and optimizer below
+        # HINT: see Q_net definition above, using network_initializer and use .to
         # HINT: Define using same hparams as Q_net, but adjust output dimensions
         # *** START CODE HERE ***
         # *** END CODE HERE ***
@@ -62,8 +62,9 @@ class IQLCritic(BaseCritic):
     def expectile_loss(self, diff):
         pass
         # TODO: Implement the expectile loss given the difference between q and v
-        # HINT: self.iql_expectile provides the \zeta value as described 
-        # in the problem statement.
+        # HINT: self.iql_expectile provides the \zeta value as described in the problem statement.
+        # HINT: torch.where can be useful for implementing the piecewise nature of the expectile loss.
+        # HINT: ptu.from_numpy may be useful
         # *** START CODE HERE ***
         # *** END CODE HERE ***
 
@@ -75,10 +76,10 @@ class IQLCritic(BaseCritic):
         ob_no = ptu.from_numpy(ob_no)
         ac_na = ptu.from_numpy(ac_na).to(torch.long)
 
-        # TODO: Compute loss for v_net
+        # TODO: Compute loss for v_net (value_loss) using expectile_loss defined above
         # HINT: use target q network to train V
-        # HINT: Use self.expectile_loss as defined above, 
-        # passing in the difference between the computed targets and predictions
+        # HINT: Use self.expectile_loss as defined above, passing in the difference between the computed targets and predictions.
+        # HINT: For the computed targets, you may need to detach the target q values from the computation graph, since they should not backpropagate gradients into the q_net.
         # *** START CODE HERE ***
         # *** END CODE HERE ***
         
@@ -106,8 +107,8 @@ class IQLCritic(BaseCritic):
         
         
         # TODO: Compute loss for updating Q_net parameters
-        # HINT: Note that if the next state is terminal, 
-        # its target reward value needs to be adjusted.
+        # HINT: Note that if the next state is terminal, its target reward value needs to be adjusted.
+        # HINT: target v values should be detached from the computation graph, since they should not backpropagate gradients into the v_net.
         # *** START CODE HERE ***
         # *** END CODE HERE ***
         self.optimizer.zero_grad()

@@ -2,7 +2,7 @@
 
 
 \subsection*{Goal}
-In this assignment you will implement two offline reinforcement learning algorithms: Implicit Q-Learning and Conservative Q-Learning. You'll be experimenting with different hyperparameters and offline datasets that have been provided to you. Data collection is one of the most practical problems with applying Deep RL, and it's a common practice to try different exploration strategies for a given problem. In this assignment, we provide with you  Random $\mathcal{E}$-Greedy and Random Network Distillation based exploration strategies for you to compare the quality of the collected data.
+In this assignment you will implement two offline reinforcement learning algorithms: Implicit Q-Learning and Conservative Q-Learning. You'll be experimenting with different hyperparameters and offline datasets that have been provided to you. Data collection is one of the most practical problems with applying Deep RL, and it's a common practice to try different exploration strategies for a given problem. In this assignment, we provide you with Random $\mathcal{E}$-Greedy and Random Network Distillation based exploration strategies for you to compare the quality of the collected data.
 
 
 You will then have the opportunity to train and tune these agents in a variety of environments in the Simple PointMass physics simulator. We provide the code for generating the offline datasets as part of the assignment. Your objectives are as follows:
@@ -58,7 +58,7 @@ The RND algorithm, aims at encouraging exploration by asking the exploration pol
     \phi^*=\arg \min _\phi \mathbb{E}_{s, a, s^{\prime} \sim \mathcal{D}}[\underbrace{\left\|\hat{f}_\phi\left(s^{\prime}\right)-f_\theta^*\left(s^{\prime}\right)\right\|}_{\mathcal{E}_\phi\left(s^{\prime}\right)}]
 \end{equation}
 
-If a transition $(s,a,s^\prime)$ is in the distribution of the data buffer, the prediction error $\mathcal{E}_\phi(s^\prime)$ is expected to be small. n the other hand, for all unseen state-action tuples it is expected to be large. To utilize this prediction error as a reward bonus for exploration, RND trains two critics – an exploitation critic, $Q_R(s,a)$, and an exploration critic, $Q_\mathcal{E} (s, a)$, where the exploitation critic estimates the return of the policy under the actual reward function and the exploration critic estimates the return of the policy under the reward bonus. In practice, we normalize error before passing it into the exploration critic, as this value can vary widely in magnitude across states leading to poor optimization dynamics.
+If a transition $(s,a,s^\prime)$ is in the distribution of the data buffer, the prediction error $\mathcal{E}_\phi(s^\prime)$ is expected to be small. On the other hand, for all unseen state-action tuples it is expected to be large. To utilize this prediction error as a reward bonus for exploration, RND trains two critics – an exploitation critic, $Q_R(s,a)$, and an exploration critic, $Q_\mathcal{E} (s, a)$, where the exploitation critic estimates the return of the policy under the actual reward function and the exploration critic estimates the return of the policy under the reward bonus. In practice, we normalize error before passing it into the exploration critic, as this value can vary widely in magnitude across states leading to poor optimization dynamics.
 
 
 \newpage

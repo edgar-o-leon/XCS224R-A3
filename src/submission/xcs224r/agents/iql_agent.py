@@ -109,8 +109,8 @@ class IQLAgent(DQNAgent):
 
 
             #update actor
-            # TODO 1): Estimate the advantage
-            # TODO 2): Calculate the awac actor loss
+            # TODO 1): Estimate the advantage with estimate_advantage function, which you will implement above. Make sure to detach the advantage estimates from the computation graph, since they should not backpropagate gradients into the critic.
+            # TODO 2): Calculate the awac actor loss (actor_loss) using the awac_actor's update function
             
             # *** START CODE HERE ***
             # *** END CODE HERE ***

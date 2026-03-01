@@ -11,14 +11,14 @@
   "1a-9-hidden" : {"points":2, "question_id":"1a", "is_written":false, "is_coding":true, "is_online":false, "is_extra_credit":false},
   "1a-10-hidden" : {"points":2, "question_id":"1a", "is_written":false, "is_coding":true, "is_online":false, "is_extra_credit":false},
   "1a-11-hidden" : {"points":2, "question_id":"1a", "is_written":false, "is_coding":true, "is_online":false, "is_extra_credit":false},
-  "1b" : {"points":8, "question_id":"1b", "is_written":true, "is_coding":false, "is_online":false, "is_extra_credit":false},
-  "1c" : {"points":8, "question_id":"1c", "is_written":true, "is_coding":false, "is_online":false, "is_extra_credit":false},
+  "1b" : {"points":5, "question_id":"1b", "is_written":true, "is_coding":false, "is_online":false, "is_extra_credit":false},
+  "1c" : {"points":5, "question_id":"1c", "is_written":true, "is_coding":false, "is_online":false, "is_extra_credit":false},
   "2a-0-basic" : {"points":1, "question_id":"2a", "is_written":false, "is_coding":true, "is_online":false, "is_extra_credit":false},
   "2a-1-hidden" : {"points":1, "question_id":"2a", "is_written":false, "is_coding":true, "is_online":false, "is_extra_credit":false},
   "2a-2-hidden" : {"points":2, "question_id":"2a", "is_written":false, "is_coding":true, "is_online":false, "is_extra_credit":false},
   "2a-3-hidden" : {"points":2, "question_id":"2a", "is_written":false, "is_coding":true, "is_online":false, "is_extra_credit":false},
   "2a-4-hidden" : {"points":2, "question_id":"2a", "is_written":false, "is_coding":true, "is_online":false, "is_extra_credit":false},
   "2a-5-hidden" : {"points":2, "question_id":"2a", "is_written":false, "is_coding":true, "is_online":false, "is_extra_credit":false},
-  "2b" : {"points":8, "question_id":"2b", "is_written":true, "is_coding":false, "is_online":false, "is_extra_credit":false},
-  "2c" : {"points":6, "question_id":"2c", "is_written":true, "is_coding":false, "is_online":false, "is_extra_credit":false}
+  "2b" : {"points":5, "question_id":"2b", "is_written":true, "is_coding":false, "is_online":false, "is_extra_credit":false},
+  "2c" : {"points":5, "question_id":"2c", "is_written":true, "is_coding":false, "is_online":false, "is_extra_credit":false}
 }

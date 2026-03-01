@@ -64,7 +64,12 @@ class DQNCritic(BaseCritic):
         terminal_n = ptu.from_numpy(terminal_n)
 
         qa_t_values = self.q_net(ob_no)
+        # Extracts the Q-value for the specific action that was taken (ac_na):
+        # - torch.gather(..., 1, ...) -> selects Q-value at index ac_na along dim 1
+        # Example: If qa_t_values = [[1.2, 3.5, 0.8], [2.1, 0.4, 1.9]] and ac_na = [1, 2], result is [3.5, 1.9].
         q_t_values = torch.gather(qa_t_values, 1, ac_na.unsqueeze(1)).squeeze(1)
+        # Passes next observations through the target network to get Q-values for computing the TD target
+        # The target network is a frozen copy of q_net that's periodically updated, which stabilizes DQN training.
         qa_tp1_values = self.q_net_target(next_ob_no)
 
         if self.double_q:

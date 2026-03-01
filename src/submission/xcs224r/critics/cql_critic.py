@@ -80,8 +80,9 @@ class CQLCritic(BaseCritic):
         terminal_n = ptu.from_numpy(terminal_n)
 
         # TODO: CQL Implementation
-        # Hint: Obtain DQN loss, qa_t_values, q_t_values using self.dqn_loss
-        # Hint: After calculating cql_loss, augment the loss appropriately
+        # HINT: Obtain DQN loss, qa_t_values, q_t_values using self.dqn_loss
+        # HINT: After calculating cql_loss, augment the loss appropriately
+        # HINT: torch.logsumexp and torch.mean may be useful for calculating the cql_loss
         
         # *** START CODE HERE ***
         # *** END CODE HERE ***
