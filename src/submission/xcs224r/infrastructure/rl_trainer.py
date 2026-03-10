@@ -72,8 +72,8 @@ class RL_Trainer(object):
             self.eval_env = gym.make(self.params['env_name'])
             
         matplotlib.use('Agg')
-        self.env.set_logdir(self.params['logdir'] + '/expl_')
-        self.eval_env.set_logdir(self.params['logdir'] + '/eval_')
+        self.env.unwrapped.set_logdir(self.params['logdir'] + '/expl_')
+        self.eval_env.unwrapped.set_logdir(self.params['logdir'] + '/eval_')
     
         if self.params['video_log_freq'] > 0:
             self.episode_trigger = lambda episode: episode % self.params['video_log_freq'] == 0
