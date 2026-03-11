@@ -83,7 +83,7 @@ def main():
     parser.add_argument('--awac_lambda', type=float, default=1)
     parser.add_argument('--n_layers', type=int, default=4)
     parser.add_argument('--size', type=int, default=512)
-    parser.add_argument('--learning_rate', type=int, default=1e-4)
+    parser.add_argument('--learning_rate', type=float, default=1e-4)
     parser.add_argument('--n_actions', type=int, default=10)
 
     parser.add_argument('--use_boltzmann', action='store_true')
