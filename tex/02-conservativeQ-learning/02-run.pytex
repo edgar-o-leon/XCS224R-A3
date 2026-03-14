@@ -14,7 +14,7 @@ You can look at the final eval trajectories under the saved logs to qualitativel
 
 Attach the \texttt{eval\_last\_traj.png} image denoting your agent's last trajectory for each run.
 
-Experiment with $\alpha = 0, 0.1$ on the \texttt{PointmassHard-v0} and report the Eval average return and standard deviation for both cases on the PointmassHard-v0 environment.
+Experiment with $\alpha = 0.0, 0.1$ on the \texttt{PointmassHard-v0} and report the Eval average return and standard deviation for both cases on the PointmassHard-v0 environment.
 
 What does $\alpha=0.0$ signify in terms of the algorithm? 
 
