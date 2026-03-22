@@ -46,6 +46,8 @@ class IQLCritic(BaseCritic):
         # HINT: see Q_net definition above, using network_initializer and use .to
         # HINT: Define using same hparams as Q_net, but adjust output dimensions
         # *** START CODE HERE ***
+        self.v_net = network_initializer(self.ob_dim, 1)
+        self.v_net.to(ptu.device)
         # *** END CODE HERE ***
 
         self.v_optimizer = self.optimizer_spec.constructor(
@@ -66,6 +68,9 @@ class IQLCritic(BaseCritic):
         # HINT: torch.where can be useful for implementing the piecewise nature of the expectile loss.
         # HINT: ptu.from_numpy may be useful
         # *** START CODE HERE ***
+        tau = self.iql_expectile
+        weight = torch.where(diff > 0, tau, 1 - tau)
+        return weight * (diff ** 2)
         # *** END CODE HERE ***
 
 
@@ -81,6 +86,12 @@ class IQLCritic(BaseCritic):
         # HINT: Use self.expectile_loss as defined above, passing in the difference between the computed targets and predictions.
         # HINT: For the computed targets, you may need to detach the target q values from the computation graph, since they should not backpropagate gradients into the q_net.
         # *** START CODE HERE ***
+        with torch.no_grad():
+          q_values = self.q_net_target(ob_no).gather(1, ac_na.unsqueeze(1)).squeeze(1)
+
+        v_pred = self.v_net(ob_no).squeeze(1)
+        diff = q_values - v_pred
+        value_loss = self.expectile_loss(diff).mean()
         # *** END CODE HERE ***
         
 
@@ -110,6 +121,12 @@ class IQLCritic(BaseCritic):
         # HINT: Note that if the next state is terminal, its target reward value needs to be adjusted.
         # HINT: target v values should be detached from the computation graph, since they should not backpropagate gradients into the v_net.
         # *** START CODE HERE ***
+        with torch.no_grad():
+          v_next = self.v_net(next_ob_no).squeeze(1)
+          target = reward_n + self.gamma * (1 - terminal_n) * v_next
+
+        q_pred = self.q_net(ob_no).gather(1, ac_na.unsqueeze(1)).squeeze(1)
+        loss = self.mse_loss(q_pred, target)
         # *** END CODE HERE ***
         self.optimizer.zero_grad()
         loss.backward()
