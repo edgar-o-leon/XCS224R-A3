@@ -72,8 +72,8 @@ class IQLAgent(DQNAgent):
         # (critic trained in the offline setting)
         # *** START CODE HERE ***
         q_vals = self.get_qvals(self.exploitation_critic, ob_no, ac_na)
-        v_vals = self.get_qvals(self.exploitation_critic, ob_no, use_v=True).squeeze(1)
-        adv = q_vals.squeeze(1) - v_vals
+        v_vals = self.get_qvals(self.exploitation_critic, ob_no, use_v=True)
+        adv = q_vals - v_vals
         return adv
         # *** END CODE HERE ***
         
